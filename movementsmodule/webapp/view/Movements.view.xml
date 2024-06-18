@@ -2,6 +2,11 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        <content />
+        <List id="entryList" mode="SingleSelectMaster" items="{/MovementSet}" selectionChange="onSelectionChange" >
+                            <StandardListItem
+                                title="{Id}"
+                                description="{Type}"
+                                info="{Location}" />
+                        </List>
     </Page>
 </mvc:View>
