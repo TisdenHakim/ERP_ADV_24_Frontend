@@ -6,8 +6,8 @@
         <content>
             <Table
                 id="movementTable"
-                items="{/ItemSet}"
-                headerText="Movements (Click on an item to set as navigated)"
+                items="{/MovementSet}"
+                headerText="Movements"
             >
             
                 <columns>
