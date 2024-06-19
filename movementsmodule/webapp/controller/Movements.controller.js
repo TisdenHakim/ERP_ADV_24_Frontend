@@ -43,11 +43,11 @@ sap.ui.define(
         oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
       },
       handleSortButtonPressed: function () {
-        this.getViewSettingsDialog("movementsmodule.fragments.sortDialog").then(
-          function (oViewSettingsDialog) {
-            oViewSettingsDialog.open();
-          }
-        );
+        this.loadFragment({
+          name: "movementsmodule.fragments.sortDialog",
+        }).then(function (oDialog) {
+          oDialog.open();
+        });
       },
       getViewSettingsDialog: function (sDialogFragmentName) {
         var pDialog = this._mViewSettingsDialogs[sDialogFragmentName];
