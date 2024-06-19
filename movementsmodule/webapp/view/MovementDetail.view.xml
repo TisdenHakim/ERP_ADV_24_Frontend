@@ -17,21 +17,9 @@
 				</actions>
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
-        <headerContent>
-			<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
-				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Main Category"/>
-				</m:VBox>
-				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Subcategory"/>
-				</m:VBox>
-				<m:VBox justifyContent="Center" class="sapUiSmallMarginEnd">
-					<m:Label text="Price"/>
-				</m:VBox>
-			</m:FlexBox>
-		</headerContent>
+       
         <sections>
-			<ObjectPageSection title="General Information">
+			<ObjectPageSection title="Transport details">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
@@ -46,9 +34,9 @@
 								columnsL="1"
 								columnsM="1">
 								<form:content>
-									<m:Label text="Product ID"/>
-									<m:Label text="Description"/>
-									<m:Label text="Supplier"/>
+									<m:Label text=""/>
+									<m:Label text=""/>
+									<m:Label text=""/>
 								</form:content>
 							</form:SimpleForm>
 						</blocks>
@@ -56,11 +44,11 @@
 				</subSections>
 			</ObjectPageSection>
 
-			<ObjectPageSection title="Suppliers">
+			<ObjectPageSection title="Items in transport">
 				<subSections>
 					<ObjectPageSubSection>
 						<blocks>
-							<m:Text text="Here comes the sales data table"/>
+							<m:Text text="Here comes the items data table"/>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
