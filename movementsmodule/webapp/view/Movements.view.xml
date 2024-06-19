@@ -1,42 +1,15 @@
 <mvc:View displayBlock="true" controllerName="movementsmodule.controller.Movements" height="100%"
     xmlns="sap.m"
-    xmlns:f="sap.f"
-    xmlns:mvc="sap.ui.core.mvc">
-    
-    <f:DynamicPage id="dynamicPageId" toggleHeaderOnTitleClick="false">
-        
-        <!-- DynamicPage Title -->
-        <f:title>
-            <f:DynamicPageTitle>
-                <f:heading>
-                    <Title text="{i18n>title} ({/MovementSet/length})" />
-                </f:heading>
-            </f:DynamicPageTitle>
-        </f:title>
-        
-        <!-- DynamicPage Content -->
-        <f:content>
+	xmlns:f="sap.f"
+	xmlns:mvc="sap.ui.core.mvc">
+    <Page id="page" title="{i18n>title}">
+        <content>
             <Table
-                id="entryList"
-                mode="SingleSelectMaster"
-                itemPress="onSelectionChange"
-                inset="false"
-                items="{
-                    path: '/MovementSet',
-                    sorter: {
-                        path: 'Id'
-                    }
-                }"
-                class="sapFDynamicPageAlignContent"
-                width="auto">
-                <headerToolbar>
-                    <OverflowToolbar>
-                        <ToolbarSpacer/>
-                        <SearchField search="onSearch" width="17.5rem"/>
-                        <OverflowToolbarButton icon="sap-icon://add" type="Transparent" press="onAdd"/>
-                        <OverflowToolbarButton icon="sap-icon://sort" type="Transparent" press="onSort"/>
-                    </OverflowToolbar>
-                </headerToolbar>
+                id="movementTable"
+                items="{/ItemSet}"
+                headerText="Movements (Click on an item to set as navigated)"
+            >
+            
                 <columns>
                     <Column width="12em">
                         <Text text="Id" />
@@ -57,7 +30,7 @@
                 <items>
                     <ColumnListItem type="Navigation">
                         <cells>
-                            <Text text="{Id}" />
+                             <Text text="{Id}" />
                             <Text text="{Type}" />
                             <Text text="{Location}" />
                             <Text text="{ path: 'MovDate', formatter: '.formatDate' }" />
@@ -66,15 +39,6 @@
                     </ColumnListItem>
                 </items>
             </Table>
-        </f:content>
-        
-        <!-- DynamicPage Footer -->
-        <f:footer>
-            <OverflowToolbar>
-                <ToolbarSpacer/>
-                <Button type="Accept" text="Accept"/>
-                <Button type="Reject" text="Reject"/>
-            </OverflowToolbar>
-        </f:footer>
-    </f:DynamicPage>
+        </content>
+    </Page>
 </mvc:View>
