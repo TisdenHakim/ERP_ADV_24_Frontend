@@ -1,0 +1,21 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog
+        confirm="handleFilterDialogConfirm">
+        <filterItems>
+            <ViewSettingsCustomItem
+                text="Movement Date"
+                key="MovDate"
+                customControl="true">
+                <customControl>
+                    <DateRangeSelection
+                        id="dateRangeSelection"
+                        delimiter="-"
+                        displayFormat="dd.MM.yyyy"
+                        change="handleDateRangeChange"/>
+                </customControl>
+            </ViewSettingsCustomItem>
+        </filterItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

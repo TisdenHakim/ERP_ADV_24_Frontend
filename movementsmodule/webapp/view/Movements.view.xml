@@ -10,6 +10,22 @@
                 headerText="Movements"
             >
             
+                <headerToolbar>
+				<OverflowToolbar>
+					<Title text="Movements" level="H2"/>
+					<ToolbarSpacer/>
+					<Button
+						tooltip="Sort"
+						icon="sap-icon://sort"
+						press="handleSortButtonPressed"/>
+					<Button
+						tooltip="Filter"
+						icon="sap-icon://filter"
+						press="handleFilterButtonPressed"/>
+					
+				</OverflowToolbar>
+			    </headerToolbar>
+
                 <columns>
                     <Column width="12em">
                         <Text text="Id" />
@@ -30,7 +46,7 @@
                 <items>
                        <ColumnListItem type="Navigation" vAlign="Middle" press=".onListItemPress">
                         <cells>
-                             <Text text="{Id}" />
+                            <Text text="{Id}" />
                             <Text text="{Type}" />
                             <Text text="{Location}" />
                             <Text text="{ path: 'MovDate', formatter: '.formatDate' }" />
