@@ -4,10 +4,10 @@ sap.ui.define(
     "sap/ui/core/format/DateFormat",
     "sap/f/library",
     "sap/ui/Device",
-    "sap/f/library",
     "sap/ui/model/Sorter",
     "sap/ui/core/Fragment",
-    "sap/ui/model/Filter", // Add DateFormat module
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator", // Add FilterOperator module
   ],
   function (
     Controller,
@@ -16,7 +16,8 @@ sap.ui.define(
     Device,
     Sorter,
     Fragment,
-    Filter
+    Filter,
+    FilterOperator
   ) {
     "use strict";
 
@@ -39,9 +40,9 @@ sap.ui.define(
 
       onListItemPress: function () {
         var oFCL = this.oView.getParent().getParent();
-
         oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
       },
+
       handleSortButtonPressed: function () {
         this.loadFragment({
           name: "movementsmodule.fragments.sortDialog",
@@ -49,6 +50,7 @@ sap.ui.define(
           oDialog.open();
         });
       },
+
       getViewSettingsDialog: function (sDialogFragmentName) {
         var pDialog = this._mViewSettingsDialogs[sDialogFragmentName];
 
@@ -67,6 +69,7 @@ sap.ui.define(
         }
         return pDialog;
       },
+
       handleSortDialogConfirm: function (oEvent) {
         var oTable = this.byId("movementTable"),
           mParams = oEvent.getParameters(),
@@ -82,6 +85,15 @@ sap.ui.define(
         // apply the selected sort and group settings
         oBinding.sort(aSorters);
       },
+
+      handleFilterButtonPressed: function () {
+        this.getViewSettingsDialog(
+          "movementsmodule.fragments.filterDialog"
+        ).then(function (oDialog) {
+          oDialog.open();
+        });
+      },
+
       handleFilterDialogConfirm: function (oEvent) {
         var oTable = this.byId("movementTable"),
           mParams = oEvent.getParameters(),
@@ -89,10 +101,9 @@ sap.ui.define(
           aFilters = [];
 
         mParams.filterItems.forEach(function (oItem) {
-          let sPath = oItem.getParent().getKey(),
-            sOperator = "EQ",
+          var sPath = oItem.getParent().getKey(),
             sValue1 = oItem.getKey(),
-            oFilter = new Filter(sPath, sOperator, sValue1);
+            oFilter = new Filter(sPath, FilterOperator.EQ, sValue1);
           aFilters.push(oFilter);
         });
 

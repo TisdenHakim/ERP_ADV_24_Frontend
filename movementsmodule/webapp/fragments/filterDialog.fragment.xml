@@ -4,18 +4,16 @@
     <ViewSettingsDialog
         confirm="handleFilterDialogConfirm">
         <filterItems>
-            <ViewSettingsCustomItem
-                text="Movement Date"
-                key="MovDate"
-                customControl="true">
-                <customControl>
-                    <DateRangeSelection
-                        id="dateRangeSelection"
-                        delimiter="-"
-                        displayFormat="dd.MM.yyyy"
-                        change="handleDateRangeChange"/>
-                </customControl>
-            </ViewSettingsCustomItem>
+            <ViewSettingsFilterItem
+                text="Type"
+                key="Type"
+                multiSelect="false">
+                <items>
+                    <ViewSettingsItem text="IN" key="IN" />
+                    <ViewSettingsItem text="OUT" key="OUT" />
+                    <ViewSettingsItem text="I/O" key="I/O" />
+                </items>
+            </ViewSettingsFilterItem>
         </filterItems>
     </ViewSettingsDialog>
 </core:FragmentDefinition>
