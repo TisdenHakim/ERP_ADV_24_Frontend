@@ -57,7 +57,7 @@
                 <items>
                     <ColumnListItem type="Navigation">
                         <cells>
-                             <Text text="{Id}" />
+                            <Text text="{Id}" />
                             <Text text="{Type}" />
                             <Text text="{Location}" />
                             <Text text="{ path: 'MovDate', formatter: '.formatDate' }" />
