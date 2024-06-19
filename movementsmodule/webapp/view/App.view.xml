@@ -2,8 +2,17 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m" xmlns:f="sap.f" height="100%">
+
     <f:FlexibleColumnLayout id="fcl" backgroundDesign="Solid">
-    <f:beginColumnPages>
-			<mvc:XMLView id="beginView" viewName="ap.customerapplication.view.Main"/>
-		</f:beginColumnPages></f:FlexibleColumnLayout>
+        <f:beginColumnPages>
+            <mvc:XMLView id="beginView" viewName="movementsmodule.view.Movements"/>
+        </f:beginColumnPages>
+         <f:midColumnPages>
+            <mvc:XMLView
+                id="detailView"
+                viewName="movementsmodule.view.MovementDetail"
+            />
+        </f:midColumnPages>
+    </f:FlexibleColumnLayout>
 </mvc:View>
+ 

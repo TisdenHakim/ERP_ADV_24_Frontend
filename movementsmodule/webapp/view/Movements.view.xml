@@ -28,7 +28,7 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem type="Navigation">
+                       <ColumnListItem type="Navigation" vAlign="Middle" press=".onListItemPress">
                         <cells>
                              <Text text="{Id}" />
                             <Text text="{Type}" />
